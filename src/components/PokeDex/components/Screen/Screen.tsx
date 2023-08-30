@@ -1,22 +1,16 @@
+import { Pokemon } from '../../../../types';
+import pokeball from '../../../../assets/pokeball.webp';
+
 import * as Sc from './styles';
 
 interface Props {
-  image: string;
-  name: string;
+  pokemon: Pokemon | null;
 }
 
-export const Screen = ({ image, name }: Props) => {
+export const Screen = ({ pokemon }: Props) => {
+  if (!pokemon) return <Sc.Screen src={pokeball} />;
+
   return (
-    <Sc.OuterScreen>
-      <Sc.Header>
-        <Sc.Button $size="small" />
-        <Sc.Button $size="small" />
-      </Sc.Header>
-      <Sc.Screen src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" />
-      <Sc.Footer>
-        <Sc.Button $size="large" />
-        <Sc.Menu />
-      </Sc.Footer>
-    </Sc.OuterScreen>
+    <Sc.Screen src={pokemon.sprites.other['official-artwork'].front_default} />
   );
 };

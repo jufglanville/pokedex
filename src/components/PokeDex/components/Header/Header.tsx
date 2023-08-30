@@ -1,3 +1,4 @@
+import { Light } from '../Light/Light';
 import * as Sc from './styles';
 
 export const Header = () => {
@@ -18,11 +19,11 @@ export const Header = () => {
           />
         </Sc.DiagonalLine>
       </Sc.DiagonalLineContainer>
-      <Sc.ButtonContainer>
-        <Sc.Button $color="red" />
-        <Sc.Button $color="yellow" />
-        <Sc.Button $color="green" />
-      </Sc.ButtonContainer>
+      <Sc.LightContainer>
+        <Light color="red" animate={true} />
+        <Light color="yellow" animate={true} />
+        <Light color="green" animate={true} />
+      </Sc.LightContainer>
       <Sc.BottomLine />
     </Sc.Header>
   );

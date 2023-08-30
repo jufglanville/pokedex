@@ -1,5 +1,23 @@
 import styled from 'styled-components';
 
+type BtnColor = 'red' | 'blue';
+
+// Theme
+const colors = {
+  background: '#585858',
+  active: '#424242',
+  border: '#000',
+  btns: {
+    red: '#ce1c24',
+    blue: '#3298cb',
+  },
+  screen: '#2fc452',
+  typography: {
+    background: '#ffcc03',
+    border: '#2a75bb',
+  },
+};
+
 export const Container = styled.div`
   width: 100%;
   display: grid;
@@ -18,11 +36,16 @@ export const Container = styled.div`
 export const Circle = styled.div`
   grid-area: circle;
   border-radius: 100%;
-  background-color: #585858;
-  border: 0.2rem solid #000;
+  background-color: ${colors.background};
+  border: 0.2rem solid ${colors.border};
   width: 100%;
   aspect-ratio: 1/1;
   justify-self: center;
+  cursor: pointer;
+
+  &:active {
+    background: radial-gradient(${colors.active}, ${colors.background});
+  }
 `;
 
 export const BtnContainer = styled.div`
@@ -33,20 +56,18 @@ export const BtnContainer = styled.div`
   gap: 1rem;
 `;
 
-type BtnColor = 'red' | 'blue';
-
-const btnColor = {
-  red: '#ce1c24',
-  blue: '#3298cb',
-};
-
 export const Btn = styled.div<{ $color: BtnColor }>`
   grid-area: btn;
   width: 100%;
   height: 1rem;
-  background-color: ${({ $color }) => btnColor[$color]};
+  background-color: ${({ $color }) => colors.btns[$color]};
   border-radius: 1rem;
-  border: 0.2rem solid #000;
+  border: 0.2rem solid ${colors.border};
+  cursor: pointer;
+
+  &:active {
+    filter: brightness(0.7);
+  }
 `;
 
 export const DotContainer = styled.div`
@@ -60,16 +81,19 @@ export const Dot = styled.div`
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 100%;
-  border: 0.15rem solid #000;
+  border: 0.15rem solid ${colors.border};
 `;
 
 export const Screen = styled.div`
   grid-area: screen;
   width: 100%;
   height: 100%;
-  background-color: rgb(47, 196, 82);
+  background-color: ${colors.screen};
   border-radius: 0.5rem;
-  border: 0.2rem solid #000;
+  border: 0.2rem solid ${colors.border};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ArrowContainer = styled.div`
@@ -81,8 +105,8 @@ export const ArrowContainer = styled.div`
 export const Title = styled.h1`
   grid-area: title;
   font-size: 2.5rem;
-  color: #ffcc03;
-  -webkit-text-stroke: 3px #2a75bb;
+  color: ${colors.typography.background};
+  -webkit-text-stroke: 3px ${colors.typography.border};
   font-family: 'PokemonSolid';
   padding: 1rem 0;
 `;
