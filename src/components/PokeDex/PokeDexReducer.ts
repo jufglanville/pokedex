@@ -40,10 +40,10 @@ const dPadDirectionUrlUpdate = (
   if (direction === 'right' && pokemonIdNumber < 151) {
     return `https://pokeapi.co/api/v2/pokemon/${pokemonIdNumber + 1}/`;
   }
-  if (direction === 'up' && pokemonIdNumber > 10) {
+  if (direction === 'down' && pokemonIdNumber > 10) {
     return `https://pokeapi.co/api/v2/pokemon/${pokemonIdNumber - 10}/`;
   }
-  if (direction === 'down' && pokemonIdNumber < 142) {
+  if (direction === 'up' && pokemonIdNumber < 142) {
     return `https://pokeapi.co/api/v2/pokemon/${pokemonIdNumber + 10}/`;
   }
 
@@ -69,21 +69,14 @@ export const PokeDexReducer = (
       };
 
     case 'DPAD_DIRECTION':
-      const pokemonUrl = dPadDirectionUrlUpdate(
-        action.direction,
-        state.pokemonUrl
-      );
-
       if (action.direction === 'center') {
-        return {
-          ...state,
-          menuOpen: !state.menuOpen,
-        };
+        return { ...state, menuOpen: !state.menuOpen };
       }
 
       return {
         ...state,
-        pokemonUrl: pokemonUrl,
+        menuOpen: false,
+        pokemonUrl: dPadDirectionUrlUpdate(action.direction, state.pokemonUrl),
       };
 
     default:
