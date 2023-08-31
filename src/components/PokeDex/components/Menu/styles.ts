@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-// Theme
-
 export const Container = styled.div`
   height: 100%;
   position: absolute;
   width: 100%;
   top: 0;
   overflow-y: auto;
-  background-color: #ffffff50;
+  background: ${({ theme }) => theme.background};
+  opacity: 0.8;
 `;
 
 export const ListItem = styled.li`
@@ -16,10 +15,11 @@ export const ListItem = styled.li`
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  border-bottom: 0.2rem solid #000;
+  border-bottom: ${({ theme }) => theme.border.secondary};
   cursor: pointer;
+  color: ${({ theme }) => theme.white};
 
   &:hover {
-    background-color: #ce1c24;
+    background: ${({ theme }) => theme.btns.blue};
   }
 `;

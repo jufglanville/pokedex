@@ -5,26 +5,34 @@ export const Header = () => {
   return (
     <Sc.Header>
       <Sc.CameraContainer>
-        <Sc.Camera />
+        <Light color="blue" border={true} />
       </Sc.CameraContainer>
-      <Sc.DiagonalLineContainer>
-        <Sc.DiagonalLine viewBox="0 0 10 10" preserveAspectRatio="none">
-          <line
-            x1="0"
-            y1="10"
-            x2="10"
-            y2="0"
-            stroke="black"
-            stroke-width="0.5"
-          />
-        </Sc.DiagonalLine>
-      </Sc.DiagonalLineContainer>
+
       <Sc.LightContainer>
         <Light color="red" animate={true} />
         <Light color="yellow" animate={true} />
         <Light color="green" animate={true} />
       </Sc.LightContainer>
-      <Sc.BottomLine />
+
+      <Sc.DiagonalLine viewBox="0 0 150 10" preserveAspectRatio="none">
+        <polyline points="0,10 0,0 10,0" fill="#ce1c24" />
+        <polyline
+          points="150,10 120,10 110,0 10,0 0,10"
+          fill="#ce1c24"
+          stroke="black"
+          strokeWidth="3"
+          vectorEffect="non-scaling-stroke"
+        />
+        <line
+          x1="59.7"
+          y1="10"
+          x2="59.7"
+          y2="0"
+          stroke="black"
+          strokeWidth="3"
+          vectorEffect="non-scaling-stroke"
+        />
+      </Sc.DiagonalLine>
     </Sc.Header>
   );
 };

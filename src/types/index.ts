@@ -19,6 +19,17 @@ type Sprites = {
 export type Pokemon = {
   name: string;
   sprites: Sprites;
+  height: number;
+  weight: number;
+  base_experience: number;
+  moves: [
+    {
+      move: {
+        name: string;
+        url: string;
+      };
+    },
+  ];
 };
 
 export type Directions = 'left' | 'right' | 'up' | 'down' | 'center';

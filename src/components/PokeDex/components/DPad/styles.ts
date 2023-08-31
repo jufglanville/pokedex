@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-// Theme
-const colors = {
-  background: '#585858',
-  active: '#424242',
-  border: '#000',
-};
-
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -21,13 +14,16 @@ export const Container = styled.div`
 
 const DPadBtn = styled.button`
   cursor: pointer;
-  background-color: ${colors.background};
-  border: 0.2rem solid ${colors.border};
+  background-color: ${({ theme }) => theme.btns.grey};
+  border: ${({ theme }) => theme.border.primary};
   border-radius: 0.5rem 0.5rem 0 0;
   border-bottom: none;
 
   &:active {
-    background: linear-gradient(${colors.active}, ${colors.background});
+    background: linear-gradient(
+      ${({ theme }) => theme.btns.darkGrey},
+      ${({ theme }) => theme.btns.grey}
+    );
   }
 `;
 
@@ -54,7 +50,7 @@ export const Right = styled(DPadBtn)`
 export const Center = styled.div`
   grid-area: center;
   cursor: pointer;
-  background-color: ${colors.background};
+  background-color: ${({ theme }) => theme.btns.grey};
   border: none;
   position: relative;
   display: flex;
@@ -65,13 +61,16 @@ export const Center = styled.div`
     content: '';
     width: 70%;
     height: 70%;
-    border: 0.15rem solid ${colors.border};
+    border: ${({ theme }) => theme.border.secondary};
     border-radius: 100%;
     left: 22%;
     top: 22%;
   }
 
   &:active {
-    background: radial-gradient(${colors.active} 50%, ${colors.background} 50%);
+    background: radial-gradient(
+      ${({ theme }) => theme.btns.darkGrey} 50%,
+      ${({ theme }) => theme.btns.grey} 50%
+    );
   }
 `;
