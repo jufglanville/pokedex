@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   top: 0;
   overflow-y: auto;
-  background: ${({ theme }) => theme.background};
+  background: ${({ theme }) => theme.color.grey};
   opacity: 0.8;
 `;
 
@@ -17,9 +17,9 @@ export const ListItem = styled.li`
   padding: 1rem 2rem;
   border-bottom: ${({ theme }) => theme.border.secondary};
   cursor: pointer;
-  color: ${({ theme }) => theme.white};
+  color: ${({ theme }) => theme.color.white};
 
   &:hover {
-    background: ${({ theme }) => theme.btns.blue};
+    background: ${({ theme }) => theme.color.blue};
   }
 `;

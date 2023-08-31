@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   grid-area: screen;
   padding: 5%;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.color.primary};
   border: ${({ theme }) => theme.border.primary};
   border-top: none;
   border-bottom: none;
@@ -14,7 +14,7 @@ export const OuterScreen = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.lightGrey};
+  background-color: ${({ theme }) => theme.color.lightGrey};
   border: ${({ theme }) => theme.border.primary};
   border-radius: 0 0 0 4rem;
   padding: 0 10%;
@@ -41,7 +41,7 @@ export const InnerScreen = styled.div`
 export const Menu = styled.div`
   height: 0.2rem;
   width: 2rem;
-  background-color: ${({ theme }) => theme.black};
+  background-color: ${({ theme }) => theme.color.black};
   position: relative;
   cursor: pointer;
 

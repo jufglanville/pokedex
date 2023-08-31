@@ -5,13 +5,13 @@ type BorderColorType = 'white' | 'black';
 
 const flashing = (color: LightColorType) => keyframes`
       0% {
-        background-color: ${({ theme }) => theme.lights[color]};
-        box-shadow: 0 0 10px 5px ${({ theme }) => theme.lights[color] + 50};
+        background-color: ${({ theme }) => theme.color[color]};
+        box-shadow: 0 0 10px 5px ${({ theme }) => theme.color[color] + 50};
         filter: brightness(120%);
       }
       50%, 100% {
         filter: brightness(70%);
-        background-color: ${({ theme }) => theme.lights[color]};
+        background-color: ${({ theme }) => theme.color[color]};
       }
   `;
 
@@ -23,7 +23,7 @@ export const Light = styled.div<{ $color: LightColorType; $animate: boolean }>`
   border-radius: 100%;
   width: 100%;
   aspect-ratio: 1/1;
-  background-color: ${({ theme, $color }) => theme.lights[$color]};
+  background-color: ${({ theme, $color }) => theme.color[$color]};
   border: ${({ theme }) => theme.border.primary};
   animation: ${({ $color, $animate }) => $animate && flashing($color)} 1s
     ease-in-out infinite alternate;
@@ -33,7 +33,7 @@ export const Light = styled.div<{ $color: LightColorType; $animate: boolean }>`
     position: absolute;
     width: 30%;
     height: 30%;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.color.white};
     opacity: 0.3;
     border-radius: 100%;
     left: 15%;
@@ -49,6 +49,6 @@ export const Border = styled.div<{ $color: BorderColorType }>`
   border-radius: 100%;
   width: 100%;
   aspect-ratio: 1/1;
-  background-color: ${({ theme, $color }) => theme[$color]};
+  background-color: ${({ theme, $color }) => theme.color[$color]};
   border: ${({ theme }) => theme.border.primary};
 `;

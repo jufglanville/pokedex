@@ -17,7 +17,7 @@ export const CameraContainer = styled.div`
   border: ${({ theme }) => theme.border.primary};
   border-right: none;
   border-radius: 0.5rem 0 0 0;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.color.primary};
 `;
 
 export const DiagonalLine = styled.svg`
@@ -36,7 +36,7 @@ export const LightContainer = styled.div`
   border-left: none;
   border-bottom: none;
   border-radius: 0 0.5rem 0 0;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.color.primary};
 
   & > div {
     &:nth-child(1) {

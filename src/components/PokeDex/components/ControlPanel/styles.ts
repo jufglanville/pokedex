@@ -16,7 +16,7 @@ export const Container = styled.div`
     'title title signature signature';
   gap: 0 1rem;
   align-items: center;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.color.primary};
   border: ${({ theme }) => theme.border.primary};
   border-radius: 0 0 0.5rem 0.5rem;
   border-top: none;
@@ -26,7 +26,7 @@ export const Container = styled.div`
 export const Circle = styled.button`
   grid-area: circle;
   border-radius: 100%;
-  background-color: ${({ theme }) => theme.btns.grey};
+  background-color: ${({ theme }) => theme.color.grey};
   border: ${({ theme }) => theme.border.primary};
   width: 100%;
   aspect-ratio: 1/1;
@@ -50,7 +50,7 @@ export const Btn = styled.button<{ $color: BtnColor }>`
   grid-area: btn;
   width: 100%;
   height: 1rem;
-  background-color: ${({ theme, $color }) => theme.btns[$color]};
+  background-color: ${({ theme, $color }) => theme.color[$color]};
   border-radius: 1rem;
   border: ${({ theme }) => theme.border.primary};
   cursor: pointer;
@@ -78,7 +78,7 @@ export const Screen = styled.div`
   grid-area: screen;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.screen};
+  background-color: ${({ theme }) => theme.color.green};
   border-radius: 0.5rem;
   border: ${({ theme }) => theme.border.primary};
   display: flex;
@@ -95,8 +95,8 @@ export const ArrowContainer = styled.div`
 export const Title = styled.h1`
   grid-area: title;
   font-size: 2.5rem;
-  color: ${({ theme }) => theme.typography.background};
-  -webkit-text-stroke: 3px ${({ theme }) => theme.typography.border};
+  color: ${({ theme }) => theme.color.yellow};
+  -webkit-text-stroke: 3px ${({ theme }) => theme.color.blue};
   font-family: 'PokemonSolid';
   padding: 1rem 0;
 `;

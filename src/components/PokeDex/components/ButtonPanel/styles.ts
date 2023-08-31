@@ -4,7 +4,7 @@ export const Container = styled.div`
   grid-area: buttonPanel;
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => theme.primary};
+  background: ${({ theme }) => theme.color.primary};
   border-right: ${({ theme }) => theme.border.primary};
 `;
 
@@ -23,7 +23,7 @@ export const Button = styled.button`
   height: 100%;
   border: ${({ theme }) => theme.border.primary};
   border-radius: 0.5rem;
-  background: ${({ theme }) => theme.btns.blue};
+  background: ${({ theme }) => theme.color.blue};
   word-wrap: break-word;
 `;
 
@@ -49,5 +49,5 @@ export const NavButton = styled.button`
   padding: 0 5%;
   border: ${({ theme }) => theme.border.primary};
   border-radius: 0.5rem;
-  background: ${({ theme }) => theme.btns.grey};
+  background: ${({ theme }) => theme.color.grey};
 `;

@@ -14,15 +14,15 @@ export const Container = styled.div`
 
 const DPadBtn = styled.button`
   cursor: pointer;
-  background-color: ${({ theme }) => theme.btns.grey};
+  background-color: ${({ theme }) => theme.color.grey};
   border: ${({ theme }) => theme.border.primary};
   border-radius: 0.5rem 0.5rem 0 0;
   border-bottom: none;
 
   &:active {
     background: linear-gradient(
-      ${({ theme }) => theme.btns.darkGrey},
-      ${({ theme }) => theme.btns.grey}
+      ${({ theme }) => theme.color.darkGrey},
+      ${({ theme }) => theme.color.grey}
     );
   }
 `;
@@ -50,7 +50,7 @@ export const Right = styled(DPadBtn)`
 export const Center = styled.div`
   grid-area: center;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.btns.grey};
+  background-color: ${({ theme }) => theme.color.grey};
   border: none;
   position: relative;
   display: flex;
@@ -69,8 +69,8 @@ export const Center = styled.div`
 
   &:active {
     background: radial-gradient(
-      ${({ theme }) => theme.btns.darkGrey} 50%,
-      ${({ theme }) => theme.btns.grey} 50%
+      ${({ theme }) => theme.color.darkGrey} 50%,
+      ${({ theme }) => theme.color.grey} 50%
     );
   }
 `;

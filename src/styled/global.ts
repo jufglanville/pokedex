@@ -4,29 +4,19 @@ import PokemonSolid from '../assets/fonts/PokemonSolid.ttf';
 
 // Theme
 export const theme = {
-  primary: '#ce1c24',
-  background: '#585858',
-  active: '#424242',
-  lightGrey: '#ddd',
-  btns: {
-    red: '#ce1c24',
-    blue: '#3298cb',
+  // Colors
+  color: {
+    primary: '#ce1c24',
+    red: '#ff0000',
+    blue: '#2a75bb',
+    yellow: '#ffcc03',
+    green: '#2fc452',
+    white: '#fff',
+    black: '#000',
     grey: '#585858',
     darkGrey: '#424242',
+    lightGrey: '#ddd',
   },
-  screen: '#2fc452',
-  typography: {
-    background: '#ffcc03',
-    border: '#2a75bb',
-  },
-  lights: {
-    red: '#ff0000',
-    yellow: '#fecb65',
-    green: '#32cb65',
-    blue: '#3298cb',
-  },
-  white: '#fff',
-  black: '#000',
 
   // Border
   border: {
