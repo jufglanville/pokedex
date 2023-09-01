@@ -8,7 +8,7 @@ import background from './assets/background.png';
 import { NavigationPanel } from './components/NavigationPanel/NavigationPanel';
 
 function App() {
-  const [leftSideVisible, setLeftSideVisible] = useState(false);
+  const [leftSideVisible, setLeftSideVisible] = useState(true);
   return (
     <>
       <GlobalStyle />
