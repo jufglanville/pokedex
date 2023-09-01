@@ -23,6 +23,11 @@ export const theme = {
     primary: '0.2rem solid #000',
     secondary: '0.15rem solid #000',
   },
+
+  // Breakpoints
+  breakpoint: {
+    sm: '768px',
+  },
 };
 
 export const GlobalStyle = createGlobalStyle`

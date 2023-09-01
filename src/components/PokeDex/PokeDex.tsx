@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import { usePokemonDetails } from '../../hooks/usePokemonDetails';
 import { PokeDexReducer, StateType } from './PokeDexReducer';
 
@@ -12,7 +12,11 @@ import { Footer } from '../Footer/Footer';
 import * as Sc from './styles';
 import { Directions } from '../../types';
 
-export const PokeDex = () => {
+interface Props {
+  leftSideVisible: boolean;
+}
+
+export const PokeDex = ({ leftSideVisible }: Props) => {
   const initialState: StateType = {
     pokemonId: null,
     menuOpen: false,
@@ -34,7 +38,7 @@ export const PokeDex = () => {
   };
 
   return (
-    <Sc.Container>
+    <Sc.Container $leftSideVisible={leftSideVisible}>
       <Header />
 
       <MainScreen
