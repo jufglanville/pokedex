@@ -2,6 +2,34 @@ import { createGlobalStyle } from 'styled-components';
 import PokemonHollow from '../assets/fonts/PokemonHollow.ttf';
 import PokemonSolid from '../assets/fonts/PokemonSolid.ttf';
 
+// Theme
+export const theme = {
+  // Colors
+  color: {
+    primary: '#ce1c24',
+    red: '#ff0000',
+    blue: '#4095e4',
+    yellow: '#ffcc03',
+    green: '#2fc452',
+    white: '#fff',
+    black: '#000',
+    grey: '#585858',
+    darkGrey: '#424242',
+    lightGrey: '#ddd',
+  },
+
+  // Border
+  border: {
+    primary: '0.2rem solid #000',
+    secondary: '0.15rem solid #000',
+  },
+
+  // Breakpoints
+  breakpoint: {
+    sm: '768px',
+  },
+};
+
 export const GlobalStyle = createGlobalStyle`
   /***
       The new CSS reset - version 1.8.4 (last updated 14.2.2023)

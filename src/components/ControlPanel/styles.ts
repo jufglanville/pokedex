@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
+type BtnColor = 'red' | 'blue';
+
 export const Container = styled.div`
+  grid-area: controlPanel;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 0.5fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr repeat(3, 1fr);
   grid-template-areas:
     'circle btn btn .'
     'circle . . arrow'
@@ -13,16 +16,26 @@ export const Container = styled.div`
     'title title signature signature';
   gap: 0 1rem;
   align-items: center;
+  background: ${({ theme }) => theme.color.primary};
+  border: ${({ theme }) => theme.border.primary};
+  border-radius: 0 0 0.5rem 0.5rem;
+  border-top: none;
+  padding: 0 5%;
 `;
 
-export const Circle = styled.div`
+export const Circle = styled.button`
   grid-area: circle;
   border-radius: 100%;
-  background-color: #585858;
-  border: 0.2rem solid #000;
+  background-color: ${({ theme }) => theme.color.grey};
+  border: ${({ theme }) => theme.border.primary};
   width: 100%;
   aspect-ratio: 1/1;
   justify-self: center;
+  cursor: pointer;
+
+  &:active {
+    filter: brightness(0.7);
+  }
 `;
 
 export const BtnContainer = styled.div`
@@ -33,20 +46,18 @@ export const BtnContainer = styled.div`
   gap: 1rem;
 `;
 
-type BtnColor = 'red' | 'blue';
-
-const btnColor = {
-  red: '#ce1c24',
-  blue: '#3298cb',
-};
-
-export const Btn = styled.div<{ $color: BtnColor }>`
+export const Btn = styled.button<{ $color: BtnColor }>`
   grid-area: btn;
   width: 100%;
   height: 1rem;
-  background-color: ${({ $color }) => btnColor[$color]};
+  background-color: ${({ theme, $color }) => theme.color[$color]};
   border-radius: 1rem;
-  border: 0.2rem solid #000;
+  border: ${({ theme }) => theme.border.primary};
+  cursor: pointer;
+
+  &:active {
+    filter: brightness(0.7);
+  }
 `;
 
 export const DotContainer = styled.div`
@@ -60,16 +71,19 @@ export const Dot = styled.div`
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 100%;
-  border: 0.15rem solid #000;
+  border: ${({ theme }) => theme.border.secondary};
 `;
 
 export const Screen = styled.div`
   grid-area: screen;
   width: 100%;
   height: 100%;
-  background-color: rgb(47, 196, 82);
+  background-color: ${({ theme }) => theme.color.green};
   border-radius: 0.5rem;
-  border: 0.2rem solid #000;
+  border: ${({ theme }) => theme.border.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ArrowContainer = styled.div`
@@ -81,8 +95,8 @@ export const ArrowContainer = styled.div`
 export const Title = styled.h1`
   grid-area: title;
   font-size: 2.5rem;
-  color: #ffcc03;
-  -webkit-text-stroke: 3px #2a75bb;
+  color: ${({ theme }) => theme.color.yellow};
+  -webkit-text-stroke: 3px ${({ theme }) => theme.color.blue};
   font-family: 'PokemonSolid';
   padding: 1rem 0;
 `;
@@ -90,6 +104,4 @@ export const Title = styled.h1`
 export const Signature = styled.div`
   grid-area: signature;
   text-align: right;
-  align-self: self-end;
-  padding: 2rem 0;
 `;
