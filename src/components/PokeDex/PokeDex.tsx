@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 import { usePokemonDetails } from '../../hooks/usePokemonDetails';
 import { PokeDexReducer, StateType } from './PokeDexReducer';
 
