@@ -1,14 +1,14 @@
-import { Pokemon } from '../../../../types';
+import { Pokemon } from '../../types';
 import { Light } from '../Light/Light';
 import { Menu } from '../Menu/Menu';
 import * as Sc from './styles';
 
-import pokeball from '../../../../assets/pokeball.webp';
+import pokeball from '../../assets/pokeball.webp';
 
 interface Props {
   pokemon: Pokemon | null;
   menuOpen: boolean;
-  selectPokemon: (url: string) => void;
+  selectPokemon: (pokemonId: number) => void;
   toggleMenu: () => void;
 }
 
@@ -34,7 +34,10 @@ export const MainScreen = ({
                 : pokeball
             }
           />
-          <Menu active={menuOpen} selectPokemon={(url) => selectPokemon(url)} />
+          <Menu
+            active={menuOpen}
+            selectPokemon={(pokemonId) => selectPokemon(pokemonId)}
+          />
         </Sc.InnerScreen>
 
         <Sc.Footer>

@@ -1,4 +1,4 @@
-import { Pokemon } from '../../../../types';
+import { Pokemon } from '../../types';
 import * as Sc from './styles';
 
 interface Props {

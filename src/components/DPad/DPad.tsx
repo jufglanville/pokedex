@@ -1,4 +1,4 @@
-import { Directions } from '../../../../types';
+import { Directions } from '../../types';
 import * as Sc from './styles';
 
 interface Props {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Pokemon } from '../types';
 
-export const usePokemonDetails = (url: string | null) => {
+export const usePokemonDetails = (pokemonId: number | null) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
   const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null);
@@ -12,7 +12,9 @@ export const usePokemonDetails = (url: string | null) => {
       setLoading(true);
 
       try {
-        const response = await fetch(url as string);
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
+        );
         const data: Pokemon = await response.json();
         setPokemonDetails(data);
         setLoading(false);
@@ -25,10 +27,10 @@ export const usePokemonDetails = (url: string | null) => {
     };
 
     // We only want to fetch the data if the name is not null
-    if (url) {
+    if (pokemonId) {
       getPokemonDetails();
     }
-  }, [url]);
+  }, [pokemonId]);
 
   return { pokemonDetails, loading, error };
 };

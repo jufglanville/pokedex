@@ -1,53 +1,44 @@
-import { Directions, Pokemon } from '../../types';
-import { getSlug } from '../../utils/getSlug';
+import { Directions } from '../../types';
 
 export type StateType = {
-  pokemonUrl: string | null;
-  pokemonDetails: Pokemon | null;
+  pokemonId: number | null;
   menuOpen: boolean;
 };
 
-interface setUrl {
-  type: 'SET_URL';
-  url: string;
-}
 interface dPadDirection {
   type: 'DPAD_DIRECTION';
   direction: Directions;
 }
 interface selectPokemon {
   type: 'SELECT_POKEMON';
-  url: string;
+  pokemonId: number;
 }
 interface toggleMenu {
   type: 'TOGGLE_MENU';
 }
 
-export type ActionType = setUrl | dPadDirection | selectPokemon | toggleMenu;
+export type ActionType = dPadDirection | selectPokemon | toggleMenu;
 
-const dPadDirectionUrlUpdate = (
+const dPadDirectionUpdate = (
   direction: Directions,
-  pokemonUrl: string | null
+  pokemonId: number | null
 ) => {
-  if (!pokemonUrl) return 'https://pokeapi.co/api/v2/pokemon/1/';
+  if (!pokemonId) return 1;
 
-  const pokemonId = getSlug(pokemonUrl);
-  const pokemonIdNumber = parseInt(pokemonId);
-
-  if (direction === 'left' && pokemonIdNumber > 1) {
-    return `https://pokeapi.co/api/v2/pokemon/${pokemonIdNumber - 1}/`;
+  if (direction === 'left' && pokemonId > 1) {
+    return pokemonId - 1;
   }
-  if (direction === 'right' && pokemonIdNumber < 151) {
-    return `https://pokeapi.co/api/v2/pokemon/${pokemonIdNumber + 1}/`;
+  if (direction === 'right' && pokemonId < 151) {
+    return pokemonId + 1;
   }
-  if (direction === 'down' && pokemonIdNumber > 10) {
-    return `https://pokeapi.co/api/v2/pokemon/${pokemonIdNumber - 10}/`;
+  if (direction === 'down' && pokemonId > 10) {
+    return pokemonId - 10;
   }
-  if (direction === 'up' && pokemonIdNumber < 142) {
-    return `https://pokeapi.co/api/v2/pokemon/${pokemonIdNumber + 10}/`;
+  if (direction === 'up' && pokemonId < 142) {
+    return pokemonId + 10;
   }
 
-  return pokemonUrl;
+  return pokemonId;
 };
 
 export const PokeDexReducer = (
@@ -64,7 +55,7 @@ export const PokeDexReducer = (
     case 'SELECT_POKEMON':
       return {
         ...state,
-        pokemonUrl: action.url,
+        pokemonId: action.pokemonId,
         menuOpen: false,
       };
 
@@ -76,7 +67,7 @@ export const PokeDexReducer = (
       return {
         ...state,
         menuOpen: false,
-        pokemonUrl: dPadDirectionUrlUpdate(action.direction, state.pokemonUrl),
+        pokemonId: dPadDirectionUpdate(action.direction, state.pokemonId),
       };
 
     default:

@@ -1,7 +1,7 @@
 import { DPad } from '../DPad/DPad';
 import * as Sc from './styles';
-import { Directions } from '../../../../types';
-import { capitalise } from '../../../../utils/capitalise';
+import { Directions } from '../../types';
+import { capitalise } from '../../utils/capitalise';
 
 interface Props {
   name?: string;

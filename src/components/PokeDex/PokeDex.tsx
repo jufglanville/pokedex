@@ -2,27 +2,26 @@ import { useReducer } from 'react';
 import { usePokemonDetails } from '../../hooks/usePokemonDetails';
 import { PokeDexReducer, StateType } from './PokeDexReducer';
 
-import { Header } from './components/Header/Header';
-import { MainScreen } from './components/MainScreen/MainScreen';
-import { ControlPanel } from './components/ControlPanel/ControlPanel';
+import { Header } from '../Header/Header';
+import { MainScreen } from '../MainScreen/MainScreen';
+import { ControlPanel } from '../ControlPanel/ControlPanel';
 
 import * as Sc from './styles';
 import { Directions } from '../../types';
-import { DetailScreen } from './components/DetailScreen/DetailScreen';
-import { ButtonPanel } from './components/ButtonPanel/ButtonPanel';
+import { DetailScreen } from '../DetailScreen/DetailScreen';
+import { ButtonPanel } from '../ButtonPanel/ButtonPanel';
 
 export const PokeDex = () => {
   const initialState: StateType = {
-    pokemonUrl: null,
-    pokemonDetails: null,
+    pokemonId: null,
     menuOpen: false,
   };
 
   const [state, dispatch] = useReducer(PokeDexReducer, initialState);
-  const { pokemonDetails } = usePokemonDetails(state.pokemonUrl);
+  const { pokemonDetails } = usePokemonDetails(state.pokemonId);
 
-  const selectPokemon = (url: string) => {
-    dispatch({ type: 'SELECT_POKEMON', url: url });
+  const selectPokemon = (pokemonId: number) => {
+    dispatch({ type: 'SELECT_POKEMON', pokemonId: pokemonId });
   };
 
   const toggleMenu = () => {
@@ -51,7 +50,7 @@ export const PokeDex = () => {
 
       <DetailScreen pokemon={pokemonDetails} />
 
-      <ButtonPanel pokemon={pokemonDetails} />
+      <ButtonPanel pokemonMoves={pokemonDetails?.moves} />
     </Sc.Container>
   );
 };

@@ -1,21 +1,22 @@
 import { useState } from 'react';
-import { Pokemon } from '../../../../types';
+import { PokemonMove } from '../../types';
 import * as Sc from './styles';
-import { capitalise } from '../../../../utils/capitalise';
+import { capitalise } from '../../utils/capitalise';
 import { Light } from '../Light/Light';
 
 interface Props {
-  pokemon: Pokemon | null;
+  pokemonMoves?: PokemonMove[];
 }
 
-export const ButtonPanel = ({ pokemon }: Props) => {
-  if (!pokemon) return null;
+export const ButtonPanel = ({ pokemonMoves }: Props) => {
+  if (!pokemonMoves) return null;
 
   const [page, setPage] = useState(0);
-  const itemsPerPage = 10;
-  const totalPages = Math.ceil(pokemon.moves.length / itemsPerPage);
 
-  const paginate = pokemon.moves.slice(
+  const itemsPerPage = 10;
+  const totalPages = Math.ceil(pokemonMoves.length / itemsPerPage);
+
+  const paginate = pokemonMoves.slice(
     page * itemsPerPage,
     (page + 1) * itemsPerPage
   );
@@ -32,10 +33,10 @@ export const ButtonPanel = ({ pokemon }: Props) => {
   return (
     <Sc.Container>
       <Sc.ButtonPanel>
-        {paginate.map((move) => {
+        {paginate.map((pokemonMove) => {
           return (
-            <Sc.Button key={move.move.name}>
-              {capitalise(move.move.name)}
+            <Sc.Button key={pokemonMove.move.name}>
+              {capitalise(pokemonMove.move.name)}
             </Sc.Button>
           );
         })}

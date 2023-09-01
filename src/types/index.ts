@@ -16,20 +16,20 @@ type Sprites = {
   };
 };
 
+export type PokemonMove = {
+  move: {
+    name: string;
+    url: string;
+  };
+};
+
 export type Pokemon = {
   name: string;
   sprites: Sprites;
   height: number;
   weight: number;
   base_experience: number;
-  moves: [
-    {
-      move: {
-        name: string;
-        url: string;
-      };
-    },
-  ];
+  moves: PokemonMove[];
 };
 
 export type Directions = 'left' | 'right' | 'up' | 'down' | 'center';

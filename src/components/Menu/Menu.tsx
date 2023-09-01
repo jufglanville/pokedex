@@ -1,10 +1,11 @@
-import { usePokemonList } from '../../../../hooks/usePokemonList';
-import { capitalise } from '../../../../utils/capitalise';
+import { usePokemonList } from '../../hooks/usePokemonList';
+import { capitalise } from '../../utils/capitalise';
+import { getSlug } from '../../utils/getSlug';
 import * as Sc from './styles';
 
 interface Props {
   active: boolean;
-  selectPokemon: (url: string) => void;
+  selectPokemon: (id: number) => void;
 }
 
 export const Menu = ({ active, selectPokemon }: Props) => {
@@ -19,7 +20,7 @@ export const Menu = ({ active, selectPokemon }: Props) => {
           return (
             <Sc.ListItem
               key={pokemon.name}
-              onClick={() => selectPokemon(pokemon.url)}
+              onClick={() => selectPokemon(parseInt(getSlug(pokemon.url)))}
             >
               {capitalise(pokemon.name)}
             </Sc.ListItem>
