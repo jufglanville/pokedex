@@ -7,6 +7,8 @@ export const Container = styled.div`
   border: ${({ theme }) => theme.border.primary};
   border-top: none;
   border-bottom: none;
+  display: flex;
+  align-items: center;
 `;
 
 export const OuterScreen = styled.div`

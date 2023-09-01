@@ -104,6 +104,4 @@ export const Title = styled.h1`
 export const Signature = styled.div`
   grid-area: signature;
   text-align: right;
-  align-self: self-end;
-  padding: 2rem 0;
 `;

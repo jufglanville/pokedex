@@ -9,17 +9,19 @@ interface Props {
 }
 
 export const ButtonPanel = ({ pokemonMoves }: Props) => {
-  if (!pokemonMoves) return null;
-
   const [page, setPage] = useState(0);
 
-  const itemsPerPage = 10;
-  const totalPages = Math.ceil(pokemonMoves.length / itemsPerPage);
+  const itemsPerPage = 8;
+  let totalPages = 0;
+  let paginated: PokemonMove[] = [];
 
-  const paginate = pokemonMoves.slice(
-    page * itemsPerPage,
-    (page + 1) * itemsPerPage
-  );
+  if (pokemonMoves) {
+    totalPages = Math.ceil(pokemonMoves.length / itemsPerPage);
+    paginated = pokemonMoves.slice(
+      page * itemsPerPage,
+      (page + 1) * itemsPerPage
+    );
+  }
 
   const handlePageChange = (direction: 'previous' | 'next') => {
     if (direction === 'previous' && page > 0) {
@@ -33,7 +35,7 @@ export const ButtonPanel = ({ pokemonMoves }: Props) => {
   return (
     <Sc.Container>
       <Sc.ButtonPanel>
-        {paginate.map((pokemonMove) => {
+        {paginated.map((pokemonMove) => {
           return (
             <Sc.Button key={pokemonMove.move.name}>
               {capitalise(pokemonMove.move.name)}

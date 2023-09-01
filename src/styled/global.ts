@@ -8,7 +8,7 @@ export const theme = {
   color: {
     primary: '#ce1c24',
     red: '#ff0000',
-    blue: '#2a75bb',
+    blue: '#4095e4',
     yellow: '#ffcc03',
     green: '#2fc452',
     white: '#fff',

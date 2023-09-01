@@ -18,3 +18,22 @@ export const Screen = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const List = styled.ul`
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+`;
+
+export const ListItem = styled.li`
+  width: 100%;
+  line-height: 1.5rem;
+  text-align: center;
+  &:not(:last-child) {
+    border-bottom: ${({ theme }) => theme.border.secondary};
+  }
+`;

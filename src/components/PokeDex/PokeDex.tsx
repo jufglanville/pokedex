@@ -5,11 +5,12 @@ import { PokeDexReducer, StateType } from './PokeDexReducer';
 import { Header } from '../Header/Header';
 import { MainScreen } from '../MainScreen/MainScreen';
 import { ControlPanel } from '../ControlPanel/ControlPanel';
+import { DetailScreen } from '../DetailScreen/DetailScreen';
+import { ButtonPanel } from '../ButtonPanel/ButtonPanel';
+import { Footer } from '../Footer/Footer';
 
 import * as Sc from './styles';
 import { Directions } from '../../types';
-import { DetailScreen } from '../DetailScreen/DetailScreen';
-import { ButtonPanel } from '../ButtonPanel/ButtonPanel';
 
 export const PokeDex = () => {
   const initialState: StateType = {
@@ -51,6 +52,11 @@ export const PokeDex = () => {
       <DetailScreen pokemon={pokemonDetails} />
 
       <ButtonPanel pokemonMoves={pokemonDetails?.moves} />
+
+      <Footer
+        pokemonNumber={state.pokemonId}
+        pokemonType={pokemonDetails?.types}
+      />
     </Sc.Container>
   );
 };

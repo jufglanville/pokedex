@@ -23,6 +23,13 @@ export type PokemonMove = {
   };
 };
 
+export type PokemonType = {
+  type: {
+    name: string;
+    url: string;
+  };
+};
+
 export type Pokemon = {
   name: string;
   sprites: Sprites;
@@ -30,6 +37,7 @@ export type Pokemon = {
   weight: number;
   base_experience: number;
   moves: PokemonMove[];
+  types: PokemonType[];
 };
 
 export type Directions = 'left' | 'right' | 'up' | 'down' | 'center';

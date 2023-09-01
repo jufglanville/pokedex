@@ -6,13 +6,16 @@ interface Props {
 }
 
 export const DetailScreen = ({ pokemon }: Props) => {
-  if (!pokemon) return null;
   return (
     <Sc.Container>
       <Sc.Screen>
-        <p>Height: {pokemon.height}cm</p>
-        <p>Weight: {pokemon.weight}kg</p>
-        <p>Base XP: {pokemon.base_experience}</p>
+        {pokemon && (
+          <Sc.List>
+            <Sc.ListItem>Height: {pokemon.height}cm</Sc.ListItem>
+            <Sc.ListItem>Weight: {pokemon.weight}kg</Sc.ListItem>
+            <Sc.ListItem>Base XP: {pokemon.base_experience}</Sc.ListItem>
+          </Sc.List>
+        )}
       </Sc.Screen>
     </Sc.Container>
   );

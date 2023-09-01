@@ -3,6 +3,8 @@ import styled, { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from './styled/global';
 import { PokeDex } from './components/PokeDex/PokeDex';
 
+import background from './assets/background.png';
+
 function App() {
   return (
     <>
@@ -27,4 +29,7 @@ const ScContainer = styled.div`
   width: 100%;
   min-width: 100vw;
   padding: 1rem;
+  background-image: url(${background});
+  background-size: cover;
+  background-position: center;
 `;

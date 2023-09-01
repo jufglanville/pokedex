@@ -10,16 +10,16 @@ export const Container = styled.div`
 
 export const ButtonPanel = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: repeat(2, 1fr);
+  height: 100%;
   text-align: center;
   align-items: center;
-  padding: 3%;
-  gap: 1%;
+  padding: 0 3%;
+  gap: 1px;
 `;
 
 export const Button = styled.button`
-  padding: 10% 2%;
   height: 100%;
   border: ${({ theme }) => theme.border.primary};
   border-radius: 0.5rem;
@@ -29,7 +29,7 @@ export const Button = styled.button`
 
 export const Footer = styled.div`
   display: flex;
-  padding: 0 10%;
+  padding: 3% 10% 0;
 `;
 
 export const LightContainer = styled.div`
@@ -47,7 +47,12 @@ export const NavButtonContainer = styled.div`
 
 export const NavButton = styled.button`
   padding: 0 5%;
-  border: ${({ theme }) => theme.border.primary};
+  border: ${({ theme }) => theme.border.secondary};
   border-radius: 0.5rem;
   background: ${({ theme }) => theme.color.grey};
+  cursor: pointer;
+
+  &:active {
+    background: ${({ theme }) => theme.color.darkGrey};
+  }
 `;
